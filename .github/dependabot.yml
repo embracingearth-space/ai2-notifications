@@ -1,0 +1,25 @@
+# ═══════════════════════════════════════════════════════════════════════
+# Dependabot — automated dependency updates · embracingearth.space
+# ═══════════════════════════════════════════════════════════════════════
+# Strategy:
+#   • VERSION updates here do MINOR + PATCH only, grouped into one low-risk
+#     PR per ecosystem. MAJOR bumps are deliberately IGNORED — they are
+#     breaking changes that need a planned, tested upgrade, not an auto-PR
+#     flood.
+#   • SECURITY updates (enabled via Settings → Code security → "Dependabot
+#     security updates" — a repo toggle, not set in this file) still bump
+#     ANY version, INCLUDING majors, when a CVE specifically requires it.
+#     The `version-update:` prefix on the ignore rules below scopes them to
+#     version updates only, so security fixes are never suppressed.
+# ═══════════════════════════════════════════════════════════════════════
+version: 2
+updates:
+  # ── GitHub Actions workflow dependencies ──
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
